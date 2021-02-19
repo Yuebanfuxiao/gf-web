@@ -1,0 +1,90 @@
+# HTTP Server
+[server]
+	Address     = ":8199"
+	ServerRoot  = "public"
+	ServerAgent = "gf-app"
+	LogPath     = "/tmp/log/gf-app/server"
+
+# Logger.
+[logger]
+    Path        = "/tmp/log/gf-app"
+    Level       = "all"
+    Stdout      = true
+
+# Template.
+[viewer]
+    Path        = "template"
+    DefaultFile = "index.html"
+    Delimiters  =  ["${", "}"]
+
+# Database.
+[database]
+    link  = "mysql:root:123456@tcp(192.168.33.10:3306)/gf-web"
+    debug = true
+    # (可选)自动创建时间字段名称
+    CreatedAt    = "created_at"
+    # (可选)自动更新时间字段名称
+    UpdatedAt    = "updated_at"
+    # (可选)软删除时间字段名称
+    DeletedAt    = "deleted_at"
+    # Database logger.
+    [database.logger]
+        Path   = "/tmp/log/gf-app/sql"
+        Level  = "all"
+        Stdout = true
+
+# Pagination
+[pagination]
+    # 默认每页条数
+    DefaultLimit = 10
+    # 可选每页条数
+    AllowLimits = [10,20,30,50,100]
+
+# JWT
+[jwt]
+    [jwt.backend]
+        # 作用域
+        Realm = "backend"
+        # 签名算法
+        Algorithm = "HS256"
+        # 密钥KEY
+        Secret = "aaa"
+        # TOKEN超时时间（秒）
+        Timeout = 432000
+        # TOKEN刷新时间（秒）
+        Refresh = 432000
+        # 唯一登陆
+        Unique = false
+        # 身份识别KEY
+        IdentityKey = "id"
+        # TOKEN查找位置
+        TokenLookup = "header:Authorization"
+        # TOKEN头名
+        TokenHeadName = "Bearer"
+        # 公钥文件
+        PublicKeyFile = ""
+        # 私钥文件
+        PrivateKeyFile = ""
+
+# Casbin
+[casbin]
+    [casbin.backend]
+        # 权限验证模型
+        Model = "./config/backend_model.conf"
+        # 是否开启调试模式
+        Debug = true
+        # 是否启用权限验证
+        Enable = true
+        # 是否自动定期加载策略
+        AutoLoad = true
+        # 自动加载时间间隔
+        Duration = 60
+        # 数据库组名
+        GroupName = "default"
+        # 访问控制规则表名
+        TableName = "permission_policy"
+
+# Response
+[response]
+    # 响应格式 json、jsonp、xml
+    Format = "json"

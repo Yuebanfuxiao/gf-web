@@ -1,0 +1,865 @@
+{
+	"info": {
+		"_postman_id": "956a10db-37c2-4438-b594-14b1e4b620ed",
+		"name": "gf-web",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "注册登陆",
+			"item": [
+				{
+					"name": "登陆账号",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account",
+									"value": "fuxiao3",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/passport/sign-in",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"passport",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "注册账号",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account",
+									"value": "fuxiao6",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/passport/sign-up",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"passport",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "刷新授权",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/backend/passport/refresh-auth",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"passport",
+								"refresh-auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "退出账号",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account",
+									"value": "fuxiao3",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/passport/sign-out",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"passport",
+								"sign-out"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "系统管理员",
+			"item": [
+				{
+					"name": "获取管理员",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/backend/admin/hello",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"admin",
+								"hello"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "切换状态",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/admin/switch-status",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"admin",
+								"switch-status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改密码",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "1234567",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/admin/modify-password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"admin",
+								"modify-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "重置密码",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234566",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/admin/reset-password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"admin",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除管理员",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/admin/delete-admin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"admin",
+								"delete-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "创建管理员",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account",
+									"value": "fuxiao20",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "拂晓",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"value": "https://www.baidu.com/img/flexible/logo/pc/result.png",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/admin/create-admin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"admin",
+								"create-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改管理员",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "19",
+									"type": "text"
+								},
+								{
+									"key": "nickname",
+									"value": "拂晓",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/admin/update-admin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"admin",
+								"update-admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "角色管理",
+			"item": [
+				{
+					"name": "创建角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "超级管理员",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "系统超级管理员",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nodes[]",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "nodes[]",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/role/create-role",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"role",
+								"create-role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id[]",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "id[]",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "id[]",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "id[]",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "id[]",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "id[]",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/role/delete-role",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"role",
+								"delete-role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "超级管理员",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "系统超级管理员啊啊啊",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nodes[]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "nodes[]",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/role/update-role",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"role",
+								"update-role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "切换状态",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/role/switch-status",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"role",
+								"switch-status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "拉取角色",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/backend/role/fetch-role?page=1&limit=10&status[]=1&status[]=0&name=超级",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"role",
+								"fetch-role"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "status[]",
+									"value": "1"
+								},
+								{
+									"key": "status[]",
+									"value": "0"
+								},
+								{
+									"key": "name",
+									"value": "超级"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "节点管理",
+			"item": [
+				{
+					"name": "创建节点",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "创建节点",
+									"type": "text"
+								},
+								{
+									"key": "path",
+									"value": "/backend/permission/create-node",
+									"type": "text"
+								},
+								{
+									"key": "method",
+									"value": "DELETE",
+									"type": "text"
+								},
+								{
+									"key": "remark",
+									"value": "创建权限控制节点",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/backend/permission/create-node",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"permission",
+								"create-node"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "节点分页",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/backend/permission/list-node?page=1&limit=10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"backend",
+								"permission",
+								"list-node"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
